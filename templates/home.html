@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Execice Boucles</title>
+    
+    <link rel="stylesheet" href="templates/css/style.css">
+    <!-- foundation CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation.min.css" integrity="sha256-GSio8qamaXapM8Fq9JYdGNTvk/dgs+cMLgPeevOYEx0= sha384-wAweiGTn38CY2DSwAaEffed6iMeflc0FMiuptanbN4J+ib+342gKGpvYRWubPd/+ sha512-QHEb6jOC8SaGTmYmGU19u2FhIfeG+t/hSacIWPpDzOp5yygnthL3JwnilM7LM1dOAbJv62R+/FICfsrKUqv4Gg==" crossorigin="anonymous">
+
+
+</head>
+<body> 
+
+    <h2> Students </h2>
+    <table class="class="unstriped" ">
+        <thead>
+            <tr>
+                <th> Firstname </th>
+                <th> Lastname </th>
+                <th> Address </th>
+            </tr>
+        </thead>
+        
+        {% for student in students %}
+            <tbody>
+                <tr>
+                    <td>{{ student['firstname'] }}</td>
+                    <td>{{ student['lastname'] }}</td>
+                    <td>{{ student['address']|join(', ') }}</td>
+                </tr> 
+            </tbody>
+        {% endfor %}
+        
+    </table>
+
+    <h2>Coachs</h2>
+    <table class="unstriped">
+        <thead>
+            <tr>
+                <th> Firstname </th>
+                <th> Lastname </th>
+                <th> Skills </th>
+                <th> Birthdate </th>
+            </tr>
+        </thead>
+        
+        {% for coach in coachs %}
+            <tbody>
+                <tr>
+                    <td>{{ coach['firstname'] }}</td>
+                    <td>{{ coach['lastname'] }}</td>
+                    <td>{{ coach['skills']|join(', ') }}</td>
+                    <td>{{ coach['birthdate']|date("m/d/Y") }}</td>
+                </tr> 
+            </tbody>
+        {% endfor %}
+            
+    </table>
+       
+</body>
+</html>
